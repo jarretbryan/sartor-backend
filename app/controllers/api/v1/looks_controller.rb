@@ -1,4 +1,4 @@
-class LooksController < ApplicationController
+class Api::V1::LooksController < ApplicationController
      def create
         @look = Look.new(look_params)
         if @look.save
