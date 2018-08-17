@@ -1,5 +1,7 @@
 class Api::V1::LooksController < ApplicationController
-     def create
+    
+    
+    def create
         @look = Look.new(look_params)
         if @look.save
             render json: @look, status: :accepted
@@ -9,6 +11,7 @@ class Api::V1::LooksController < ApplicationController
     end
 
     private
+
 
     def look_params
         params.permit(:title, :lookURL, :user_id)
