@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article: MyString
+  linkURL: MyString
+  look: one
+
+two:
+  article: MyString
+  linkURL: MyString
+  look: two

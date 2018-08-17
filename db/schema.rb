@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_223428) do
+ActiveRecord::Schema.define(version: 2018_08_17_155430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "links", force: :cascade do |t|
+    t.string "article"
+    t.string "linkURL"
+    t.bigint "look_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["look_id"], name: "index_links_on_look_id"
+  end
 
   create_table "looks", force: :cascade do |t|
     t.string "title"
@@ -30,5 +39,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_223428) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "links", "looks"
   add_foreign_key "looks", "users"
 end
