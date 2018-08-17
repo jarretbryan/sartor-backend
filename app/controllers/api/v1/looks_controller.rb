@@ -1,5 +1,15 @@
 class Api::V1::LooksController < ApplicationController
     
+    before_action :get_look, only: [:show]
+
+    def index
+        @looks = Look.all
+        render json: @looks
+    end
+
+    def show
+        render json: @look
+    end
     
     def create
         @look = Look.new(look_params)
@@ -15,5 +25,9 @@ class Api::V1::LooksController < ApplicationController
 
     def look_params
         params.permit(:title, :lookURL, :user_id)
+    end
+
+     def get_look
+        @look = Look.find(params[:id])
     end
 end
