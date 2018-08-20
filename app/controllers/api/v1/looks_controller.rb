@@ -21,6 +21,7 @@ class Api::V1::LooksController < ApplicationController
     end
 
     def destroy
+        # byebug
         @look.delete
     end
 
