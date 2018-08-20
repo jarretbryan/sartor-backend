@@ -1,6 +1,6 @@
 class Api::V1::LooksController < ApplicationController
     
-    before_action :get_look, only: [:show]
+    before_action :get_look, only: [:show, :destroy]
 
     def index
         @looks = Look.all
@@ -18,6 +18,10 @@ class Api::V1::LooksController < ApplicationController
         else
             render json: {errors: @look.errors.full_messages}, status: :unprocessible_entity
         end
+    end
+
+    def destroy
+        @look.delete
     end
 
     private
