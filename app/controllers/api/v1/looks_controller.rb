@@ -32,7 +32,7 @@ class Api::V1::LooksController < ApplicationController
         params.permit(:title, :lookURL, :user_id)
     end
 
-     def get_look
+    def get_look
         @look = Look.find(params[:id])
     end
 end

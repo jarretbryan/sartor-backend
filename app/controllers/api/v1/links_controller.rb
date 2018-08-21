@@ -9,6 +9,11 @@ class Api::V1::LinksController < ApplicationController
         end
     end
 
+    def destroy
+        @link = Link.find(params[:id])
+        @link.delete
+    end
+
     private
 
 
